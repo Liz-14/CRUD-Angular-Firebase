@@ -1,0 +1,10 @@
+.d-flex{
+  height: 75vh;
+}
+
+@media(max-height:420px) {
+  .d-flex{
+    height: 150vh;
+    margin-top: -70px;
+  }
+}

@@ -12,7 +12,7 @@ export class ListComponent implements OnInit {
     state: {
       value: null
     }
-  };
+  }
 
   constructor(private router: Router) { }
 
@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
   }
 
   onClickSee(item: any): void{
-    //this.navigationExtras.state.value = item;
+    this.navigationExtras.state!.value = item;
     this.router.navigate(['details'], this.navigationExtras)
   }
 

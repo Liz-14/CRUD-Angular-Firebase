@@ -1,1 +1,27 @@
-<p>details works!</p>
+<div class="d-flex justify-content-center align-items-center flex-column">
+  <div class="card border-info mb-3 w-100" style="max-width: 30rem;">
+    <div class="card-header"><h4>Employee Details</h4></div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item">
+          Name: <h5>Manuel Perez</h5>
+        </li>
+        <li class="list-group-item">
+          Email: <h5>manuel@gmail.com</h5>
+        </li>
+        <li class="list-group-item">
+          Phone: <h5>315 16415614</h5>
+        </li>
+        <li class="list-group-item">
+          Start Date: <h5>20/01/2022</h5>
+        </li>
+      </ul>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-outline-warning btn-sm" (click)="onClickEdit()">Edit</button>
+      <button type="button" class="btn btn-outline-danger btn-sm" (click)="onClickDelete()">Delete</button>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary mt-2" (click)="onClickBack()">Go back to list</button>
+</div>

@@ -1,37 +1,67 @@
 <div class="card border-warning col-md-8 offset-md-2">
-  <div class="card-header text-center"><h4>Edit Employee</h4></div>
+  <div class="card-header text-center">
+    <h4>Edit Employee</h4>
+  </div>
   <div class="card-body">
     <form (ngSubmit)="onSave()" [formGroup]="employeeForm">
       <fieldset>
         <div class="form-group row">
-         <label class="col-md-1 col-form-label">Name</label>
-         <div class="col-md-5">
-           <input type="text" class="form-control" placeholder="Name" formControlName='name'>
-         </div>
-         <label class="col-md-1 col-form-label">Last Name</label>
-         <div class="col-md-5">
-           <input type="text" class="form-control" placeholder="Last name" formControlName='lastName'>
-         </div>
-       </div>
-       <div class="form-group row mt-3">
-        <label class="col-md-1 col-form-label">Start Date</label>
-        <div class="col-md-5">
-          <input type="text" class="form-control" placeholder="12/12/2021" formControlName='startDate'>
+          <label class="col-md-1 col-form-label">Name</label>
+          <div class="col-md-5">
+            <input type="text" class="form-control" placeholder="Name"
+            formControlName='name' [ngClass]="{'is-invalid': name?.invalid && (name?.dirty || name?.touched)}">
+            <div class="invalid-feedback">
+              Please enter a Customer Name.
+            </div>
+          </div>
+          <label class="col-md-1 col-form-label">Last Name</label>
+          <div class="col-md-5">
+            <input type="text" class="form-control" placeholder="Last name"
+            formControlName='lastName' [ngClass]="{'is-invalid': lastName?.invalid && (lastName?.dirty || lastName?.touched)}">
+            <div class="invalid-feedback">
+              Please enter a Last Name.
+            </div>
+          </div>
         </div>
-        <label class="col-md-1 col-form-label">Phone</label>
-        <div class="col-md-5">
-          <input type="text" class="form-control" placeholder="Enter Phone" formControlName='phone'>
+        <div class="form-group row mt-3">
+          <label class="col-md-1 col-form-label">Start Date</label>
+          <div class="col-md-5">
+            <input type="text" class="form-control" placeholder="12/12/2021"
+            formControlName='startDate' [ngClass]="{'is-invalid': startDate?.invalid && (startDate?.dirty || startDate?.touched)}">
+            <div class="invalid-feedback">
+              Please enter a Start Date.
+            </div>
+          </div>
+          <label class="col-md-1 col-form-label">Phone</label>
+          <div class="col-md-5">
+            <input type="text" class="form-control" placeholder="Enter Phone"
+            formControlName='phone'[ngClass]="{'is-invalid': phone?.invalid && (phone?.dirty || phone?.touched)}">
+            <div class="invalid-feedback" *ngIf="phone?.errors?.required!">
+              Please enter a Phone.
+            </div>
+            <div class="invalid-feedback" *ngIf="phone?.errors?.pattern!">
+              Only enter numbers.
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form-group row mt-3">
-       <label class="col-md-1 col-form-label">Email</label>
-       <div class="col-md-11">
-         <input type="email" class="form-control" placeholder="Enter email" formControlName='email'>
-       </div>
-     </div>
-      <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-lg btn-primary mt-5">Submit</button>
-      </div>
+        <div class="form-group row mt-3">
+          <label class="col-md-1 col-form-label">Email</label>
+          <div class="col-md-11">
+            <input type="email" class="form-control" placeholder="Enter email"
+            formControlName='email' [ngClass]="{'is-invalid': email?.invalid && (email?.dirty || email?.touched)}">
+            <div class="invalid-feedback" *ngIf="email?.errors?.required!">
+              Please enter a email.
+            </div>
+            <div class="invalid-feedback" *ngIf="email?.errors?.pattern!">
+              The email format is invalid.
+            </div>
+          </div>
+
+
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-lg btn-primary mt-5" [disabled]="employeeForm.invalid">Submit</button>
+        </div>
       </fieldset>
     </form>
   </div>

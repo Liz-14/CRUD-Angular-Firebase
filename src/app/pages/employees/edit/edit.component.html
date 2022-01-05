@@ -26,8 +26,8 @@
         <div class="form-group row mt-3">
           <label class="col-md-1 col-form-label">Start Date</label>
           <div class="col-md-5">
-            <input type="text" class="form-control" placeholder="12/12/2021"
-            formControlName='startDate' [ngClass]="{'is-invalid': startDate?.invalid && (startDate?.dirty || startDate?.touched)}">
+            <app-datepicker-popup [parentForm]="employeeForm" [formControlName]="'startDate'"
+            [ngClass]="{'is-invalid': startDate?.invalid && (startDate?.dirty || startDate?.touched)}"></app-datepicker-popup>
             <div class="invalid-feedback">
               Please enter a Start Date.
             </div>

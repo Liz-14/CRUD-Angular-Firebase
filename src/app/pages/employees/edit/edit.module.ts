@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { EditRoutingModule } from './edit-routing.module';
 import { EditComponent } from './edit.component';
+import { DatepickerPopupComponent } from './datepicker-popup/datepicker-popup.component';
 
 
 @NgModule({
   declarations: [
-    EditComponent
+    EditComponent,
+    DatepickerPopupComponent
   ],
   imports: [
     CommonModule,
     EditRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    NgbModule
   ]
 })
 export class EditModule { }

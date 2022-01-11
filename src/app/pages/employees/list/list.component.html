@@ -11,11 +11,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="table-light text-dark" *ngFor="let item of [0,1,2,3,4,5,6]">
-        <th scope="row">Manuel</th>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
+      <tr class="table-light text-dark" *ngFor="let item of mock">
+        <th scope="row">{{item.name}} {{item.lastName}}</th>
+        <td>{{item.email}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.startDate.day}}/{{item.startDate.month}}/{{item.startDate.year}}</td>
         <td class="btn-group d-none d-sm-block" role="group">
           <button type="button" class="btn btn-warning btn-sm  m-1" (click)="onClickEdit(item)">Edit</button>
           <button type="button" class="btn btn-info btn-sm m-1" (click)="onClickSee(item)">See</button>

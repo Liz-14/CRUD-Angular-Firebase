@@ -9,18 +9,23 @@ import { FormGroup, FormBuilder, Validators  } from '@angular/forms'
 })
 export class EditComponent implements OnInit {
 
-  value: any = null
+  employee: any = null
   employeeForm!: FormGroup
   private isEmail = /\S+@\S+\.\S+/
   private isNumber = /^\d+$/
 
   constructor(private router: Router, private fb: FormBuilder) {
     const navigation = this.router.getCurrentNavigation()
-    this.value = navigation?.extras?.state
+    this.employee = navigation?.extras?.state?.value
+    this.initForm()
   }
 
   ngOnInit(): void {
-    this.initForm();
+    if(typeof this.employee === 'undefined'){
+      this.router.navigate(['new'])
+    }else{
+      this.employeeForm.patchValue(this.employee)
+    }
   }
 
   private initForm(): void{

@@ -12,7 +12,7 @@ export class DatepickerComponent implements OnInit {
   model!: NgbDateStruct;
 
   @Input() parentForm!: FormGroup;
-  @Input() formControlName! : string;
+  @Input() formContName! : string;
 
   constructor() { }
 

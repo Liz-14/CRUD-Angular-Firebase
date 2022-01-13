@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "employees-51bb6": {
+      "hosting": {
+        "CRUD-Angular-Firebase": [
+          "employees-51bb6"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "employees-51bb6"
+  }
+}

@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     SharedModule,
-    NgbModule
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [AngularFirestoreModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

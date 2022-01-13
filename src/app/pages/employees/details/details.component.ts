@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { Employee } from 'src/app/interfaces/employee';
 
 @Component({
   selector: 'app-details',
@@ -8,7 +9,7 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
 
-  employee: any = null
+  employee: any = null;
 
   navigationExtras: NavigationExtras = {
     state: {

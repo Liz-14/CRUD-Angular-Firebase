@@ -4,11 +4,10 @@ import { FormGroup } from '@angular/forms'
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-datepicker-popup',
-  templateUrl: './datepicker-popup.component.html',
-  styleUrls: ['./datepicker-popup.component.scss']
+  selector: 'app-datepicker',
+  templateUrl: './datepicker.component.html',
 })
-export class DatepickerPopupComponent implements OnInit {
+export class DatepickerComponent implements OnInit {
 
   model!: NgbDateStruct;
 

@@ -4,16 +4,16 @@
     <div class="card-body">
       <ul class="list-group">
         <li class="list-group-item">
-          Name: <h5>Manuel Perez</h5>
+          Name: <h5>{{employee.name}} {{employee.lastName}}</h5>
         </li>
         <li class="list-group-item">
-          Email: <h5>manuel@gmail.com</h5>
+          Email: <h5>{{employee.email}}</h5>
         </li>
         <li class="list-group-item">
-          Phone: <h5>315 16415614</h5>
+          Phone: <h5>{{employee.phone}}</h5>
         </li>
         <li class="list-group-item">
-          Start Date: <h5>20/01/2022</h5>
+          Start Date: <h5>{{employee.startDate.day}}/{{employee.startDate.month}}/{{employee.startDate.year}}</h5>
         </li>
       </ul>
     </div>

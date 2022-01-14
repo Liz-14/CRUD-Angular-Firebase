@@ -12,54 +12,8 @@ import { FireServiceService } from '../../../pages/service/fire-service.service'
 })
 export class ListComponent implements OnInit {
 
-  mock: Employee[] = [
-    {
-      name: 'Mauricio',
-      lastName: 'Rodriguez',
-      email: 'hola@gmail.com',
-      phone: 541315443,
-      startDate: {
-        year: 2021,
-        month: 12,
-        day: 12
-      }
-    },
-    {
-      name: 'Carlos',
-      lastName: 'Rodriguez',
-      email: 'hola@gmail.com',
-      phone: 541315443,
-      startDate: {
-        year: 2021,
-        month: 12,
-        day: 12
-      }
-    },
-    {
-      name: 'Lucia',
-      lastName: 'Rodriguez',
-      email: 'hola@gmail.com',
-      phone: 541315443,
-      startDate: {
-        year: 2021,
-        month: 12,
-        day: 12
-      }
-    },
-    {
-      name: 'Camila',
-      lastName: 'Rodriguez',
-      email: 'hola@gmail.com',
-      phone: 541315443,
-      startDate: {
-        year: 2021,
-        month: 12,
-        day: 12
-      }
-    }
-  ]
+  listEmployees$ = this.employeeSvc.employees
   employeeSaved!: boolean
-
   navigationExtras: NavigationExtras = {
     state: {
       value: null
@@ -83,8 +37,14 @@ export class ListComponent implements OnInit {
     this.router.navigate(['details'], this.navigationExtras)
   }
 
-  onClickDelete(item: Employee): void{
-    alert(`${item.name} ${item.lastName} eliminado`)
+   async onClickDelete(item: Employee): Promise<void>{
+     try{
+       await this.employeeSvc.onDelete(item.id)
+       alert(`${item.name} ${item.lastName} eliminado`)
+     }catch(err){
+       console.log(err)
+     }
+
   }
 
   onClickClose(){

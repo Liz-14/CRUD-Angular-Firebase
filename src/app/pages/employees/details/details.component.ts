@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+
 import { Employee } from 'src/app/interfaces/employee.interface';
+
+import { FireServiceService } from '../../../pages/service/fire-service.service'
 
 @Component({
   selector: 'app-details',
@@ -17,7 +20,7 @@ export class DetailsComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private employeeSvc: FireServiceService) {
     const navigation = this.router.getCurrentNavigation();
     this.employee = navigation?.extras?.state?.value
    }
@@ -37,9 +40,14 @@ export class DetailsComponent implements OnInit {
     this.router.navigate(['edit'], this.navigationExtras)
   }
 
-  onClickDelete(): void{
-    alert(`${this.employee.name} eliminado`)
-    this.router.navigate(['list'])
+  async onClickDelete(): Promise<void>{
+    try{
+      await this.employeeSvc.onDelete(this.employee.id)
+      alert(`${this.employee.name} ${this.employee.lastName} eliminado`)
+      this.router.navigate(['list'])
+    }catch(err){
+      console.log(err)
+    }
   }
 
 }

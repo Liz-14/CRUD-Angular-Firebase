@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+
 import { Employee } from 'src/app/interfaces/employee.interface';
+
+import { FireServiceService } from '../../../pages/service/fire-service.service'
 
 @Component({
   selector: 'app-list',
@@ -55,6 +58,7 @@ export class ListComponent implements OnInit {
       }
     }
   ]
+  employeeSaved!: boolean
 
   navigationExtras: NavigationExtras = {
     state: {
@@ -62,10 +66,11 @@ export class ListComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private employeeSvc: FireServiceService) {
    }
 
   ngOnInit(): void {
+    this.employeeSaved = this.employeeSvc.employeeSaved
   }
 
   onClickEdit(item: Employee): void{
@@ -80,5 +85,10 @@ export class ListComponent implements OnInit {
 
   onClickDelete(item: Employee): void{
     alert(`${item.name} ${item.lastName} eliminado`)
+  }
+
+  onClickClose(){
+    this.employeeSvc.employeeSaved = false
+    this.employeeSaved = false
   }
 }

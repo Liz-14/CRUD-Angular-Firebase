@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms'
+
 import { Employee } from 'src/app/interfaces/employee.interface';
+
+import { FireServiceService } from '../../../pages/service/fire-service.service'
 
 @Component({
   selector: 'app-form',
@@ -15,7 +18,10 @@ export class FormComponent implements OnInit {
   private isEmail = /\S+@\S+\.\S+/
   private isNumber = /^\d+$/
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private employeeSvc: FireServiceService) {
     const navigation = this.router.getCurrentNavigation()
     this.employee = navigation?.extras?.state?.value
     this.initForm()
@@ -46,8 +52,11 @@ export class FormComponent implements OnInit {
   get phone() {return this.employeeForm.get('phone')}
 
   onSave(): void{
-    alert('save')
-    console.log('saved', this.employeeForm.value)
+    const employeeToSend = this.employeeForm.value
+    const employeeId = this.employee?.id || null
+    this.employeeSvc.onSave(employeeToSend, employeeId)
+    this.employeeForm.reset();
+    this.employeeSvc.employeeSaved = true
     this.router.navigate(['list'])
   }
 

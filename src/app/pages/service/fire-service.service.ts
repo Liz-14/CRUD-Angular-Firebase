@@ -10,10 +10,12 @@ import { Employee } from 'src/app/interfaces/employee.interface';
 export class FireServiceService {
 
   employees!: Observable<Employee[]>
+  employeeSaved: boolean = false
+  employeeDeleted: boolean = false
 
   private employeesCollection: AngularFirestoreCollection<Employee>
 
-  constructor(private afs: AngularFirestore) { 
+  constructor(private afs: AngularFirestore) {
     this.employeesCollection = afs.collection<Employee>('employees')
     this.getEmployees()
   }

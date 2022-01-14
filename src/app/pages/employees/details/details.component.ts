@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { Employee } from 'src/app/interfaces/employee';
+import { Employee } from 'src/app/interfaces/employee.interface';
 
 @Component({
   selector: 'app-details',
@@ -9,7 +9,7 @@ import { Employee } from 'src/app/interfaces/employee';
 })
 export class DetailsComponent implements OnInit {
 
-  employee: any = null;
+  employee: Employee
 
   navigationExtras: NavigationExtras = {
     state: {
@@ -38,7 +38,8 @@ export class DetailsComponent implements OnInit {
   }
 
   onClickDelete(): void{
-    alert(`${this.employee.value} eliminado`)
+    alert(`${this.employee.name} eliminado`)
+    this.router.navigate(['list'])
   }
 
 }

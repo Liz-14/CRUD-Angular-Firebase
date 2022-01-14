@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms'
+import { Employee } from 'src/app/interfaces/employee.interface';
 
 @Component({
   selector: 'app-form',
@@ -9,7 +10,7 @@ import { FormGroup, FormBuilder, Validators  } from '@angular/forms'
 })
 export class FormComponent implements OnInit {
 
-  employee: any = null
+  employee: Employee;
   employeeForm!: FormGroup
   private isEmail = /\S+@\S+\.\S+/
   private isNumber = /^\d+$/

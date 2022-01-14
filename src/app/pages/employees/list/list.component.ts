@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Employee } from 'src/app/interfaces/employee.interface';
 
 @Component({
   selector: 'app-list',
@@ -8,12 +9,12 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-  mock = [
+  mock: Employee[] = [
     {
       name: 'Mauricio',
       lastName: 'Rodriguez',
       email: 'hola@gmail.com',
-      phone: '541315443',
+      phone: 541315443,
       startDate: {
         year: 2021,
         month: 12,
@@ -24,7 +25,7 @@ export class ListComponent implements OnInit {
       name: 'Carlos',
       lastName: 'Rodriguez',
       email: 'hola@gmail.com',
-      phone: '541315443',
+      phone: 541315443,
       startDate: {
         year: 2021,
         month: 12,
@@ -35,7 +36,7 @@ export class ListComponent implements OnInit {
       name: 'Lucia',
       lastName: 'Rodriguez',
       email: 'hola@gmail.com',
-      phone: '541315443',
+      phone: 541315443,
       startDate: {
         year: 2021,
         month: 12,
@@ -46,7 +47,7 @@ export class ListComponent implements OnInit {
       name: 'Camila',
       lastName: 'Rodriguez',
       email: 'hola@gmail.com',
-      phone: '541315443',
+      phone: 541315443,
       startDate: {
         year: 2021,
         month: 12,
@@ -67,17 +68,17 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickEdit(item: any): void{
+  onClickEdit(item: Employee): void{
     this.navigationExtras.state!.value = item;
     this.router.navigate(['edit'], this.navigationExtras)
   }
 
-  onClickSee(item: any): void{
+  onClickSee(item: Employee): void{
     this.navigationExtras.state!.value = item;
     this.router.navigate(['details'], this.navigationExtras)
   }
 
-  onClickDelete(item: any): void{
-    alert(`${item} eliminado`)
+  onClickDelete(item: Employee): void{
+    alert(`${item.name} ${item.lastName} eliminado`)
   }
 }

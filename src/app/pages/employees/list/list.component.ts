@@ -14,6 +14,7 @@ export class ListComponent implements OnInit {
 
   listEmployees$ = this.employeeSvc.employees
   employeeSaved!: boolean
+  employeeDeleted!: boolean
   navigationExtras: NavigationExtras = {
     state: {
       value: null
@@ -25,6 +26,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeSaved = this.employeeSvc.employeeSaved
+    this.employeeDeleted = false
   }
 
   onClickEdit(item: Employee): void{
@@ -40,7 +42,7 @@ export class ListComponent implements OnInit {
    async onClickDelete(item: Employee): Promise<void>{
      try{
        await this.employeeSvc.onDelete(item.id)
-       alert(`${item.name} ${item.lastName} eliminado`)
+       this.employeeDeleted = true
      }catch(err){
        console.log(err)
      }
@@ -50,5 +52,6 @@ export class ListComponent implements OnInit {
   onClickClose(){
     this.employeeSvc.employeeSaved = false
     this.employeeSaved = false
+    this.employeeDeleted = false
   }
 }

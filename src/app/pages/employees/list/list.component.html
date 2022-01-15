@@ -10,6 +10,12 @@
   <strong>Employee saved</strong>.
 </div>
 
+<div class="alert alert-dismissible alert-success" *ngIf="employeeDeleted">
+   <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  <button type="button" class="btn-close btn-dark" data-bs-dismiss="alert" (click)="onClickClose()"></button>
+  <strong>Employee deleted</strong>.
+</div>
+
 <div class="table-responsive">
   <h3 class="m-0 p-2 bg-secondary text-center fw-bold">Employee List</h3>
   <table class="table table-hover">

@@ -54,4 +54,5 @@ export class ListComponent implements OnInit {
     this.employeeSaved = false
     this.employeeDeleted = false
   }
+
 }

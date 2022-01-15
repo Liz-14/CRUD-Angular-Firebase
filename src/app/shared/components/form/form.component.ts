@@ -21,7 +21,8 @@ export class FormComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private employeeSvc: FireServiceService) {
+    private employeeSvc: FireServiceService)
+  {
     const navigation = this.router.getCurrentNavigation()
     this.employee = navigation?.extras?.state?.value
     this.initForm()

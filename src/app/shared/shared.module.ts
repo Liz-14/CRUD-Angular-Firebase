@@ -10,15 +10,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormComponent } from './components/form/form.component';
 import { DatepickerComponent } from './components/form/datepicker/datepicker.component';
-
-
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     FormComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
@@ -31,6 +31,7 @@ import { DatepickerComponent } from './components/form/datepicker/datepicker.com
     HeaderComponent,
     FooterComponent,
     FormComponent,
+    FilterPipe,
     RouterModule
   ]
 })

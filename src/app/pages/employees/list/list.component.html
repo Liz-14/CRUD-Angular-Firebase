@@ -20,7 +20,7 @@
   <strong>Employee deleted</strong>.
 </div>
 
-<app-filter></app-filter>
+<app-filter (dateFilterClick)="dateFilter($event)"></app-filter>
 
 <div class="table-responsive mt-5">
   <h3 class="m-0 p-2 bg-secondary text-center fw-bold">Employee List</h3>
@@ -35,7 +35,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="table-light text-dark" *ngFor="let item of listEmployees$ | async">
+      <tr class="table-light text-dark" *ngFor="let item of listEmployees$ | async | filter: dateFilterToPipe">
         <th scope="row">{{item.name}} {{item.lastName}}</th>
         <td>{{item.email}}</td>
         <td>{{item.phone}}</td>

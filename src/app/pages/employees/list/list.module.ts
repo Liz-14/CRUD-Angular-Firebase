@@ -6,6 +6,8 @@ import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list.component';
 import { FilterComponent } from './filter/filter.component';
 
+import { SharedModule } from '../../../shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { FilterComponent } from './filter/filter.component';
   imports: [
     CommonModule,
     ListRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class ListModule { }

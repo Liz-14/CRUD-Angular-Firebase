@@ -20,6 +20,7 @@ export class ListComponent implements OnInit {
       value: null
     }
   }
+  dateFilterToPipe!: any
 
   constructor(private router: Router, private employeeSvc: FireServiceService) {
    }
@@ -53,6 +54,11 @@ export class ListComponent implements OnInit {
     this.employeeSvc.employeeSaved = false
     this.employeeSaved = false
     this.employeeDeleted = false
+  }
+
+  dateFilter(event: any): void{
+    this.dateFilterToPipe = event
+    console.log(event)
   }
 
 }

@@ -6,8 +6,7 @@
 
 <form (ngSubmit)="onFilter()" [formGroup]="filterForm">
   <div class="form-group row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 p-0">
+    <div class="col-md-6 offset-md-3 p-0">
       <div class="d-flex bg-light mt-0 p-2">
         <select class="form-select m-1" id="exampleSelect1" formControlName='day'>
           <option value='null' disabled>day</option>
@@ -34,6 +33,5 @@
         </button>
       </div>
     </div>
-    <div class="col-md-3"></div>
   </div>
 </form>

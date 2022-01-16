@@ -15,7 +15,7 @@ export class FilterComponent implements OnInit {
   @Output() dateFilterClick = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {
-    this.days = Array.from({ length: 30 }, (_, i) => i + 1)
+    this.days = Array.from({ length: 31 }, (_, i) => i + 1)
     this.months = Array.from({ length: 12 }, (_, i) => i + 1)
     this.years = Array.from(Array.from(Array(Math.ceil((2023 - 2020))).keys()), x => 2020 + x)
     this.initForm()

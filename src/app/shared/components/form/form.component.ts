@@ -18,11 +18,9 @@ export class FormComponent implements OnInit {
   private isEmail = /\S+@\S+\.\S+/
   private isNumber = /^\d+$/
 
-  constructor(
-    private router: Router,
-    private fb: FormBuilder,
-    private employeeSvc: FireServiceService)
-  {
+  constructor(private router: Router,
+              private fb: FormBuilder,
+              private employeeSvc: FireServiceService){
     const navigation = this.router.getCurrentNavigation()
     this.employee = navigation?.extras?.state?.value
     this.initForm()

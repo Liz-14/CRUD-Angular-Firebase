@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(value: any, arg: any): any {
+    console.log(value)
     if(arg === undefined || (arg.month === null && arg.day === null && arg.year === null)){
       return value
     }else{
